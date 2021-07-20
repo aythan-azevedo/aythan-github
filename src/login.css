@@ -1,28 +1,38 @@
 .login-page {
   align-items: center;
-  border: 1px solid green;
   display: flex;
   flex-direction: column;
   height: 100vh;
   justify-content: center;
-  padding-top: 140px;
   text-align: center;
   z-index: 1;
 }
 
 .forms {
+  border: 1px solid green;
+  box-shadow: 1px 1px 13px 9px rgba(255, 255, 255, 0.43);
   color: #27ae60;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 150px;
+  margin-top: 100px;
   padding: 70px;
+  width: 80%;
   z-index: 1;
 }
 
 .login-page img {
   background-size: cover;
-  bottom: 220px;
+  height: 100%;
   position: fixed;
+  width: 100%;
   z-index: 0;
+}
+
+.login-page h1 {
+  color: rgb(80, 216, 18);
+  font-family: Gloria Hallelujah , cursive;
+  font-weight: 600;
+  margin-bottom: 80px;
+  z-index: 1;
 }

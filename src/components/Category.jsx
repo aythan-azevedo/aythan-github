@@ -27,7 +27,7 @@ function Category() {
   const FOUR = 4;
 
   return (
-    <div>
+    <div className="category-container">
       {
         categories.filter((el, index) => index <= FOUR)
           .map((category, index) => (

@@ -3,7 +3,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { Redirect } from 'react-router';
 import '../login.css';
-import loki from '../images/lokirecipes.png';
+import lokihelmet from '../images/lokihelmet.jpg';
 
 function Login() {
   const [passwordInvalid, setPasswordInvalid] = useState(true);
@@ -38,7 +38,8 @@ function Login() {
 
   return (
     <div className="login-page">
-      <img src={ loki } alt="Loki President" />
+      <h1>Loki Recipes</h1>
+      <img src={ lokihelmet } alt="foods" />
       <Form className="forms">
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
