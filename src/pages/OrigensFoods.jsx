@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-// import Cards from '../components/Cards';
+import Loading from '../components/Loading';
 import DropDownArea from '../components/DropDownArea';
 import Footer from '../components/Footer';
 import HeaderSearch from '../components/Header';
@@ -35,17 +35,16 @@ function OrigensFoods() {
       ))}
     </div>);
 
-  const loading = () => (<h1>Loading...</h1>);
   const renderRecipes = () => {
     fetchRecipesList().then((res) => setData(res));
   };
-  useEffect(renderRecipes, []);
+  useEffect(renderRecipes, [setData]);
 
   return (
     <div>
       <HeaderSearch title={ OrigensFoods.displayName } />
       <DropDownArea data={ data } />
-      { !data ? loading() : areaCards()}
+      { !data ? <Loading /> : areaCards()}
       <Footer />
     </div>
   );

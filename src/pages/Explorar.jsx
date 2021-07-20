@@ -2,13 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
-import lokidrink from '../images/loki-drink.jpg';
+import lokipresident from '../images/loki-president.jpg';
 import '../App.css';
 
 function Explorar() {
   Explorar.displayName = 'Explorar';
   return (
-    <div>
+    <div className="explore-body">
       <Header title={ Explorar.displayName } />
       <div className="explore">
         <div className="explore-container ">
@@ -24,7 +24,7 @@ function Explorar() {
           </Link>
         </div>
 
-        <img src={ lokidrink } alt="loki drink" />
+        <img src={ lokipresident } alt="loki drink" />
       </div>
       <Footer />
     </div>

@@ -24,28 +24,6 @@ function DetailsPage({ match: { path, params, url } }) {
     bottom: 0,
   };
 
-  const fetchDetails = async () => {
-    if (pageFoods) {
-      setTypeFunc('meals');
-      const response = await fetch(urlFoods);
-      const dataResponse = await response.json();
-      const food = dataResponse.meals[0];
-      setDetails(food);
-      const responseRecommendation = await fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=');
-      const dataRecommendation = await responseRecommendation.json();
-      setRecommendation(dataRecommendation);
-    } if (pageDrinks) {
-      setTypeFunc('drinks');
-      const response = await fetch(urlDrinks);
-      const dataResponse = await response.json();
-      const drink = dataResponse.drinks[0];
-      setDetails(drink);
-      const responseRecommendation = await fetch('https://www.themealdb.com/api/json/v1/1/search.php?s=');
-      const dataRecommendation = await responseRecommendation.json();
-      setRecommendation(dataRecommendation);
-    }
-  };
-
   const filterRecommendation = () => {
     if (recommendation) {
       const SIX_POSITION = 6;
@@ -93,8 +71,29 @@ function DetailsPage({ match: { path, params, url } }) {
   };
 
   useEffect(() => {
+    const fetchDetails = async () => {
+      if (pageFoods) {
+        setTypeFunc('meals');
+        const response = await fetch(urlFoods);
+        const dataResponse = await response.json();
+        const food = dataResponse.meals[0];
+        setDetails(food);
+        const responseRecommendation = await fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=');
+        const dataRecommendation = await responseRecommendation.json();
+        setRecommendation(dataRecommendation);
+      } if (pageDrinks) {
+        setTypeFunc('drinks');
+        const response = await fetch(urlDrinks);
+        const dataResponse = await response.json();
+        const drink = dataResponse.drinks[0];
+        setDetails(drink);
+        const responseRecommendation = await fetch('https://www.themealdb.com/api/json/v1/1/search.php?s=');
+        const dataRecommendation = await responseRecommendation.json();
+        setRecommendation(dataRecommendation);
+      }
+    };
     fetchDetails();
-  }, []);
+  }, [pageDrinks, pageFoods, setTypeFunc, urlDrinks, urlFoods]);
 
   return (
     <div>

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import shareIcon from '../images/shareIcon.svg';
 import blackHeartIcon from '../images/blackHeartIcon.svg';
+import '../App.css';
 
 function ReceitasFavoritas() {
   const recipesFavorite = JSON.parse(localStorage.getItem('favoriteRecipes'));
@@ -53,9 +54,9 @@ function ReceitasFavoritas() {
   };
 
   return (
-    <div>
+    <div className="recipes-favorite">
       <Header title={ ReceitasFavoritas.displayName } />
-      <section>
+      <section className="recipesFavorite">
         <button
           type="button"
           data-testid="filter-by-all-btn"

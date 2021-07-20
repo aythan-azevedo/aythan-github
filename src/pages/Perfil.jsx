@@ -30,7 +30,7 @@ function Perfil() {
   []);
 
   return (
-    <div>
+    <div className="perfil-body">
       <Header title={ Perfil.displayName } />
       <div className="perfil">
         <div className="perfil-container">

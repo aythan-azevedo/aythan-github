@@ -4,6 +4,7 @@ import Footer from '../components/Footer';
 import Header from '../components/Header';
 import '../App.css';
 import FetchContext from '../context/FetchContext';
+import Loading from '../components/Loading';
 
 function SearchDrinksIngredients() {
   SearchDrinksIngredients.displayName = 'Explorar Ingredientes';
@@ -56,7 +57,7 @@ function SearchDrinksIngredients() {
   return (
     <div>
       <Header title={ SearchDrinksIngredients.displayName } />
-      {drinksIng.length === 0 ? <h1>Loading...</h1> : renderDrinkIng()}
+      {drinksIng.length === 0 ? <Loading /> : renderDrinkIng()}
       <Footer />
     </div>
   );

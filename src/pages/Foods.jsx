@@ -7,11 +7,11 @@ import Footer from '../components/Footer';
 import { categoryListMeal, fetchRecipesList } from '../services/Api';
 import Category from '../components/Category';
 import '../App.css';
+import Loading from '../components/Loading';
 
 function Foods() {
   const {
     setTypeFunc, data, setData, setNameRecipes, setImgRecipes, setCategories, setIdRecip,
-    filterMeals,
   } = useContext(FetchContext);
 
   Foods.displayName = 'Comidas';
@@ -19,10 +19,11 @@ function Foods() {
   useEffect(() => {
     const renderCategorys = () => {
       categoryListMeal().then((res) => setCategories(res));
+      fetchRecipesList().then((res) => setData(res));
     };
 
     renderCategorys();
-  }, [setCategories]);
+  }, [setCategories, setData]);
 
   const fnAlert = (func, message) => {
     func(message);
@@ -41,23 +42,14 @@ function Foods() {
     setNameRecipes('strMeal');
     setImgRecipes('strMealThumb');
     setIdRecip('idMeal');
-    if (filterMeals === null) { fetchRecipesList().then((res) => setData(res)); }
   };
 
   return (
-    <div>
+    <div className="body-food">
       { setTypeFunc('comidas')}
       <Header title={ Foods.displayName } />
-      <button
-        type="button"
-        className="category"
-        onClick={ renderRecipes }
-        data-testid="All-category-filter"
-      >
-        All
-      </button>
       <Category />
-      { data.length === 0 && renderRecipes() }
+      { data.length === 0 ? <Loading /> : renderRecipes() }
       <Cards />
       <Footer />
     </div>

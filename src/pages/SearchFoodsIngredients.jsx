@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
+import Loading from '../components/Loading';
 import FetchContext from '../context/FetchContext';
 
 function SearchFoodsIngredients() {
@@ -56,7 +57,7 @@ function SearchFoodsIngredients() {
   return (
     <div>
       <Header title={ SearchFoodsIngredients.displayName } />
-      { mealsIng.length === 0 ? <h1>Loading...</h1> : renderMealsIng()}
+      { mealsIng.length === 0 ? <Loading /> : renderMealsIng()}
       <Footer />
     </div>
   );

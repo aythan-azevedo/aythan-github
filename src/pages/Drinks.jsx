@@ -7,11 +7,12 @@ import Footer from '../components/Footer';
 import { categoryListDrink, fetchDrinksList } from '../services/Api';
 import Category from '../components/Category';
 import '../App.css';
+import Loading from '../components/Loading';
 
 function Drinks() {
   const {
-    setTypeFunc, data, setData, setNameRecipes, setImgRecipes, setCategories, setIdRecip,
-    filterDrink,
+    setTypeFunc, data, setData, setNameRecipes, setImgRecipes, setCategories,
+    setIdRecip,
   } = useContext(FetchContext);
 
   Drinks.displayName = 'Bebidas';
@@ -19,9 +20,10 @@ function Drinks() {
   useEffect(() => {
     const renderCategorys = () => {
       categoryListDrink().then((res) => setCategories(res));
+      fetchDrinksList().then((res) => setData(res));
     };
     renderCategorys();
-  }, [setCategories]);
+  }, [setCategories, setData]);
 
   const fnAlert = (func, message) => {
     func(message);
@@ -40,23 +42,14 @@ function Drinks() {
     setNameRecipes('strDrink');
     setImgRecipes('strDrinkThumb');
     setIdRecip('idDrink');
-    if (filterDrink === null) { fetchDrinksList().then((res) => setData(res)); }
   };
 
   return (
-    <div>
+    <div className="body-drink">
       { setTypeFunc('bebidas') }
       <Header title={ Drinks.displayName } />
-      <button
-        type="button"
-        className="category"
-        onClick={ renderDrinks }
-        data-testid="All-category-filter"
-      >
-        All
-      </button>
       <Category />
-      { data.length === 0 && renderDrinks() }
+      { data.length === 0 ? <Loading /> : renderDrinks() }
       <Cards />
       <Footer />
     </div>

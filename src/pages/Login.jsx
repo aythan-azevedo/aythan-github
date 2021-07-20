@@ -42,7 +42,7 @@ function Login() {
       <img src={ lokihelmet } alt="foods" />
       <Form className="forms">
         <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
+          {/* <Form.Label>Email address</Form.Label> */}
           <Form.Control
             data-testid="email-input"
             type="email"
@@ -52,7 +52,7 @@ function Login() {
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
+          {/* <Form.Label>Password</Form.Label> */}
           <Form.Control
             data-testid="password-input"
             type="password"

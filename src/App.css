@@ -73,7 +73,6 @@
   flex-wrap: wrap;
   justify-content: center;
   margin-bottom: 10px;
-  margin-top: 10px;
   padding: 5px;
   width: 100%;
 }
@@ -83,6 +82,7 @@
   bottom: 0;
   display: flex;
   justify-content: space-between;
+  padding: 5px;
   position: fixed;
   width: 100%;
 }
@@ -103,7 +103,12 @@
   border: 1px solid black;
   border-radius: 15px;
   display: flex;
-  width: 140px;
+  width: 180px;
+}
+
+.card-container a {
+  color: black;
+  font-size: 25px;
 }
 
 .cards {
@@ -111,6 +116,8 @@
   border: 1px solid #2eec71;
   border-radius: 15px 15px 1px 30px;
   box-shadow: 1px 1px 3px 3px green;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
 form {
@@ -137,7 +144,7 @@ form {
 .category {
   background: #2ecc71;
   border-radius: 5px;
-  box-shadow: 1px 1px 3px 3px rgb(11, 14, 12);
+  box-shadow: 1px 1px 3px 3px green;
   padding: 0;
   width: 50%;
 }
@@ -148,9 +155,14 @@ form {
   z-index: 1;
 }
 
+.explore-body {
+  background-color: #e1e4b4;
+}
+
 .explore-btn {
-  background: #1e8449;
+  background: #2ecc71;
   border-radius: 5px;
+  box-shadow: 1px 1px 3px 3px green;
   z-index: 1;
 }
 
@@ -164,6 +176,38 @@ form {
   min-width: 1024px;
   position: fixed;
   z-index: 0;
+}
+
+.explore-foods {
+  background-color: #e1e4b4;
+  height: 100vh;
+}
+
+.explore-drinks {
+  background-color: #e1e4b4;
+  height: 100vh;
+}
+
+.exploreFoods {
+  display: flex;
+}
+
+.exploreDrinks {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+.explore-foods button {
+  background: #2ecc71;
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px 3px green;
+}
+
+.explore-drinks button {
+  background: #2ecc71;
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px 3px green;
 }
 
 .perfil {
@@ -182,9 +226,52 @@ form {
   width: 200px;
 }
 
+.perfil-body {
+  height: 100vh;
+}
+
 .category-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
 }
 
+.card-recipes {
+  width: 200px;
+}
+
+.body {
+  background-color: #e1e4b4;
+}
+
+.recipes-done {
+  height: 100vh;
+}
+
+.recipesDone {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+}
+
+.recipes-done button {
+  background: #2ecc71;
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px 3px green;
+}
+
+.recipes-favorite {
+  height: 100vh;
+}
+
+.recipesFavorite {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+}
+
+.recipes-favorite button {
+  background: #2ecc71;
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px 3px green;
+}

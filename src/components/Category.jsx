@@ -6,9 +6,9 @@ import {
 import '../App.css';
 
 function Category() {
-  const { categories, setData, typeFunc } = useContext(FetchContext);
+  const { categories, setData, typeFunc, filterMeals,
+    setNameRecipes, setImgRecipes, setIdRecip, filterDrink } = useContext(FetchContext);
   const [filters, setFilters] = useState('');
-
   const handleClick = ({ target: { value } }) => {
     setFilters(value);
     if (filters !== value) {
@@ -26,8 +26,36 @@ function Category() {
 
   const FOUR = 4;
 
+  const renderRecipes = () => {
+    setNameRecipes('strMeal');
+    setImgRecipes('strMealThumb');
+    setIdRecip('idMeal');
+    if (filterMeals === null) { fetchRecipesList().then((res) => setData(res)); }
+  };
+
+  const renderDrinks = () => {
+    setNameRecipes('strDrink');
+    setImgRecipes('strDrinkThumb');
+    setIdRecip('idDrink');
+    if (filterDrink === null) { fetchDrinksList().then((res) => setData(res)); }
+  };
+
   return (
     <div className="category-container">
+      <button
+        type="button"
+        className="category"
+        onClick={ () => {
+          if (typeFunc === 'comidas') {
+            renderRecipes();
+          } else {
+            renderDrinks();
+          }
+        } }
+        data-testid="All-category-filter"
+      >
+        All
+      </button>
       {
         categories.filter((el, index) => index <= FOUR)
           .map((category, index) => (

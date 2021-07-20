@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import CardsRecipesDones from '../components/CardsRecipesDone';
 import Header from '../components/Header';
+import '../App.css';
 
 function ReceitasFeitas() {
   const recipesDone = JSON.parse(localStorage.getItem('doneRecipes'));
@@ -27,9 +28,9 @@ function ReceitasFeitas() {
   };
 
   return (
-    <div>
+    <div className="recipes-done">
       <Header title={ ReceitasFeitas.displayName } />
-      <section>
+      <section className="recipesDone">
         <button
           type="button"
           data-testid="filter-by-all-btn"
