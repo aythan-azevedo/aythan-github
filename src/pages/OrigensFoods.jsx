@@ -6,6 +6,7 @@ import Footer from '../components/Footer';
 import HeaderSearch from '../components/Header';
 import FetchContext from '../context/FetchContext';
 import { fetchRecipesList } from '../services/Api';
+import '../App.css';
 
 function OrigensFoods() {
   OrigensFoods.displayName = 'Explorar Origem';
@@ -13,19 +14,20 @@ function OrigensFoods() {
   const TWELVE = 12;
 
   const areaCards = () => (
-    <div>
+    <div className="origens-foods">
       { data && data.slice(0, TWELVE).map((food, index) => (
         <Link
           to={ `/comidas/${food.idMeal}` }
           key={ food.idMeal }
         >
           <div
+            className="origensFoods"
             data-testid={ `${index}-recipe-card` }
             key={ food.idMeal }
           >
             <p data-testid={ `${index}-card-name` }>{food.strMeal}</p>
             <img
-              width="150px;"
+              width="120px;"
               data-testid={ `${index}-card-img` }
               src={ food.strMealThumb }
               alt={ food.strMeal }

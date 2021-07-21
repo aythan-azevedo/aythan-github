@@ -275,3 +275,59 @@ form {
   border-radius: 5px;
   box-shadow: 1px 1px 3px 3px green;
 }
+
+.origens-foods {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 25px;
+  text-align: center;
+}
+
+.origensFoods {
+  background: #2ecc71;
+  border-radius: 15px 15px 1px 30px;
+  box-shadow: 1px 1px 3px 3px green;
+  margin: 10px;
+  padding-bottom: 5px;
+  width: 130px;
+}
+
+.origensFoods img {
+  border-radius: 15px 15px 1px 30px;
+}
+
+.origensFoods p {
+  color: black;
+}
+
+.details-page {
+  text-align: center;
+}
+
+.details-page img {
+  border-radius: 10px;
+  padding-top: 10px;
+  width: 300px;
+}
+
+.details-ing {
+  padding: 10px;
+}
+
+.details-instruc {
+  padding: 10px;
+}
+
+.details-video {
+  padding: 25px;
+}
+
+.details-carrossel {
+  text-align: center;
+}
+
+.details-carrossel img {
+  margin: auto;
+  width: 200px;
+}

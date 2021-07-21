@@ -7,6 +7,7 @@ import { Button } from 'react-bootstrap';
 import RecommendedCard from '../components/RecommendedCard';
 import ShareFavoriteBtm from '../components/ShareFavoriteBtm';
 import FetchContext from '../context/FetchContext';
+import '../App.css';
 
 function DetailsPage({ match: { path, params, url } }) {
   const { setTypeFunc } = useContext(FetchContext);
@@ -97,7 +98,7 @@ function DetailsPage({ match: { path, params, url } }) {
 
   return (
     <div>
-      <div>
+      <div className="details-page">
         <img
           data-testid="recipe-photo"
           src={ details.strMealThumb || details.strDrinkThumb }
@@ -124,7 +125,7 @@ function DetailsPage({ match: { path, params, url } }) {
         data={ details }
         pageDrinks={ pageDrinks }
       />
-      <div>
+      <div className="details-ing">
         <h3>
           Ingredientes
         </h3>
@@ -132,16 +133,16 @@ function DetailsPage({ match: { path, params, url } }) {
           {filterIngredients() }
         </ul>
       </div>
-      <div>
+      <div className="details-instruc">
         <h3>
           Instruções
         </h3>
         { handleInstrutions() }
       </div>
-      <div>
-        <ReactPlayer data-testid="video" url={ details.strYoutube } />
+      <div className="details-video">
+        <ReactPlayer width="300px" data-testid="video" url={ details.strYoutube } />
       </div>
-      <div>
+      <div className="details-carrossel">
         <h3>
           Recomendações
         </h3>
@@ -149,7 +150,7 @@ function DetailsPage({ match: { path, params, url } }) {
           {filterRecommendation()}
         </Carousel>
       </div>
-      <div>
+      <div className="details-btn">
         <Button
           variant="success"
           style={ buttonStyle }
