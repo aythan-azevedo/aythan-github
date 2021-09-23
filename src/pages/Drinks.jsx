@@ -4,24 +4,24 @@ import Header from '../components/Header';
 import FetchContext from '../context/FetchContext';
 import Cards from '../components/Cards';
 import Footer from '../components/Footer';
-import { categoryListMeal, fetchRecipesList } from '../services/Api';
+import { categoryListDrink, fetchDrinksList } from '../services/Api';
 import Category from '../components/Category';
 import '../App.css';
 import Loading from '../components/Loading';
 
-function Foods() {
+function Drinks() {
   const {
-    setTypeFunc, data, setData, setNameRecipes, setImgRecipes, setCategories, setIdRecip,
+    setTypeFunc, data, setData, setNameRecipes, setImgRecipes, setCategories,
+    setIdRecip,
   } = useContext(FetchContext);
 
-  Foods.displayName = 'Comidas';
+  Drinks.displayName = 'Bebidas';
 
   useEffect(() => {
     const renderCategorys = () => {
-      categoryListMeal().then((res) => setCategories(res));
-      fetchRecipesList().then((res) => setData(res));
+      categoryListDrink().then((res) => setCategories(res));
+      fetchDrinksList().then((res) => setData(res));
     };
-
     renderCategorys();
   }, [setCategories, setData]);
 
@@ -34,26 +34,26 @@ function Foods() {
     return fnAlert(alert, msg);
   }
 
-  if (data.length === 1 && data[0].idMeal !== '52968') {
-    return <Redirect to={ `/comidas/${data[0].idMeal}` } />;
+  if (data.length === 1) {
+    return <Redirect to={ `/bebidas/${data[0].idDrink}` } />;
   }
 
-  const renderRecipes = () => {
-    setNameRecipes('strMeal');
-    setImgRecipes('strMealThumb');
-    setIdRecip('idMeal');
+  const renderDrinks = () => {
+    setNameRecipes('strDrink');
+    setImgRecipes('strDrinkThumb');
+    setIdRecip('idDrink');
   };
 
   return (
-    <div className="body-food">
-      { setTypeFunc('comidas')}
-      <Header title={ Foods.displayName } />
+    <div className="body-drink">
+      { setTypeFunc('bebidas') }
+      <Header title={ Drinks.displayName } />
       <Category />
-      { data.length === 0 ? <Loading /> : renderRecipes() }
+      { data.length === 0 ? <Loading /> : renderDrinks() }
       <Cards />
       <Footer />
     </div>
   );
 }
 
-export default Foods;
+export default Drinks;

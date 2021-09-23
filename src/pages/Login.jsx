@@ -3,6 +3,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { Redirect } from 'react-router';
 import '../login.css';
+import lokihelmet from '../images/lokihelmet.jpg';
 
 function Login() {
   const [passwordInvalid, setPasswordInvalid] = useState(true);
@@ -37,9 +38,11 @@ function Login() {
 
   return (
     <div className="login-page">
-      <Form>
+      <h1>Loki Recipes</h1>
+      <img src={ lokihelmet } alt="foods" />
+      <Form className="forms">
         <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
+          {/* <Form.Label>Email address</Form.Label> */}
           <Form.Control
             data-testid="email-input"
             type="email"
@@ -49,7 +52,7 @@ function Login() {
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
+          {/* <Form.Label>Password</Form.Label> */}
           <Form.Control
             data-testid="password-input"
             type="password"
@@ -59,12 +62,14 @@ function Login() {
         </Form.Group>
         <Button
           data-testid="login-submit-btn"
-          variant="success btn-block"
+          variant="success"
+          size="lg"
+          block
           type="submit"
           disabled={ emailInvalid || passwordInvalid }
           onClick={ handleClick }
         >
-          Submit
+          Login
         </Button>
       </Form>
     </div>
